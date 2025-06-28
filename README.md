@@ -34,17 +34,18 @@ local redzlib = {
 			["Color Text"] = Color3.fromRGB(245, 245, 245),
 			["Color Dark Text"] = Color3.fromRGB(190, 190, 190)
 		},
-		Purple = {
+		MetalRed = {
 			["Color Hub 1"] = ColorSequence.new({
-				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(27.5, 25, 30)),
-				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(32.5, 32.5, 32.5)),
-				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(27.5, 25, 30))
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(80, 0, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(180, 0, 0))
 			}),
-			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
-			["Color Stroke"] = Color3.fromRGB(40, 40, 40),
-			["Color Theme"] = Color3.fromRGB(150, 0, 255),
-			["Color Text"] = Color3.fromRGB(240, 240, 240),
-			["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
+			["Color Hub 2"] = Color3.fromRGB(20, 20, 20),
+			["Color Stroke"] = Color3.fromRGB(100, 0, 0),
+			["Color Theme"] = Color3.fromRGB(200, 30, 30),
+			["Color Text"] = Color3.fromRGB(220, 220, 220),
+			["Color Dark Text"] = Color3.fromRGB(170, 170, 170),
+      			["Color Hover Text"] = Color3.fromRGB(220, 220, 220)
 		}
 	},
 	Info = {
@@ -53,7 +54,7 @@ local redzlib = {
 	Save = {
 		UISize = {550, 380},
 		TabSize = 160,
-		Theme = "Darker"
+		Theme = "MetalRed"
 	},
 	Settings = {},
 	Connection = {},
@@ -886,9 +887,8 @@ local redzlib = {
 		}
 	end)()
 }
-
 local ViewportSize = workspace.CurrentCamera.ViewportSize
-local UIScale = ViewportSize.Y / 450
+local UIScale = ViewportSize.Y / 540
 
 local Settings = redzlib.Settings
 local Flags = redzlib.Flags
@@ -1580,8 +1580,8 @@ function redzlib:MakeWindow(Configs)
 	local Window, FirstTab = {}, false
 	function Window:CloseBtn()
 		local Dialog = Window:Dialog({
-			Title = "Close",
-			Text = "You Want Close Ui?",
+			Title = "Fechar",
+			Text = "Tem certeza que deseja sair?",
 			Options = {
 				{"Confirm", function()
 					ScreenGui:Destroy()
